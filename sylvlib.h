@@ -38,6 +38,8 @@ typedef struct table_hours {
 // Day class of different table schedules
 typedef struct day {
     table_hours tables[10];
+    int count; // number of table_hours currently in use
+    int dayId; // Unique identifier for the day
 } day;
 
 // Schedule class for all possible days open with student and teacher 
@@ -57,3 +59,7 @@ student * new_student(char * name, int subjects, int id, int notWithAmount, int 
 void add_student_to_table(student * std, table * t);
 
 void add_table_to_schedule(table_hours * tblHrs, table * t);
+
+void add_table_hours_to_day(table_hours * tblHrs, day * d);
+
+void add_day_to_schedule(weekly_schedule * ws, day * d);
